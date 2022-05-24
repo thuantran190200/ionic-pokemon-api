@@ -9,7 +9,7 @@ import { ApiPokemonService } from 'src/app/services/api-pokemon.service';
 })
 export class HomePage implements OnInit {
   pokemons: any[] = [];
-  limit = 9;
+  limit = 10;
   offset = 0;
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -38,47 +38,26 @@ export class HomePage implements OnInit {
     this.apipokemon
       .getpokemon(this.limit, this.offset)
       .subscribe((res: any) => {
-        this.pokemons = res.results;
-        console.log(res);
-      });
-  }
-  // loadMore() {
-  //   console.log('ok');
-  // }
-
-  loadPokemon(loadMore = true, event?) {
-    if (loadMore) {
-      this.offset += 20;
-    }
-    this.apipokemon
-      .getpokemon(this.limit, this.offset)
-      .subscribe((res: any) => {
         this.pokemons = [...this.pokemons, ...res.results];
         console.log(res);
       });
-
-    setTimeout(() => {
-      if (event) {
-        event.target.complete();
-      }
-    }, 50000);
-    // eslint-disable-next-line eqeqeq
-    if (this.offset == 200) {
-      this.infiniteScroll.disabled = true;
-    }
-
-    // setTimeout(() => {
-    //   console.log('Done');
-    //   event.target.complete();
-    //   // App logic to determine if all data is loaded
-    //   // and disable the infinite scroll
-    //   if (data.length === 1000) {
-    //     event.target.disabled = true;
-    //   }
-    // }, 500);
   }
+  loadPokemon(event) {
+    setTimeout(() => {
+      console.log('Done');
+      // if (loadmore) {
+      //   this.offset += 10;
+      // }
+      this.offset += 10;
+      this.getpokemon(this.limit, this.offset);
+      event.target.complete();
+      console.log('1', this.pokemons.length);
 
-  toggleInfiniteScroll() {
-    this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+      // App logic to determine if all data is loaded
+      // and disable the infinite scroll
+      if (this.pokemons.length === 60) {
+        event.target.disabled = true;
+      }
+    }, 1000);
   }
 }

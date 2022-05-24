@@ -12,7 +12,7 @@
           <app-pokemon  [pokemon]="pokemon"></app-pokemon>
 
         </ion-item>
-        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadPokemon(true, $event)">
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadPokemon($event)">
           <ion-infinite-scroll-content
             loadingSpinner="bubbles"
             loadingText="Loading more data...">
