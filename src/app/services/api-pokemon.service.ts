@@ -25,8 +25,8 @@ export class ApiPokemonService {
   }
 
   // lấy theo từng api
-  getpokemon() {
-    return this.http.get(this.url + 'pokemon?limit=10');
+  getpokemon(limit: number, offset: number) {
+    return this.http.get(this.url + `pokemon?limit=${limit}&offset=${offset}`);
   }
   getData(name: string) {
     return this.http.get(this.url + `pokemon/${name}`);
