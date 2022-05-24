@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () =>
       import('./home/home.module').then((m) => m.HomePageModule),
   },
+  {
+    path: 'pokemon',
+    loadChildren: () => import('./pages/pokemon/pokemon.module').then( m => m.PokemonPageModule)
+  },
   // {
   //   path: '',
   //   redirectTo: 'home',
