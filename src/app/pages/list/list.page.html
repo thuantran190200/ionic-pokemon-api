@@ -1,9 +1,23 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>list</ion-title>
+  <ion-toolbar class="toolbar">
+    <ion-searchbar showCancelButton="focus" [(ngModel)]="searchTerm" placeholder="tìm kiếm..."></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>
+    <ion-col>
+      <ion-list>
+        <ion-item *ngFor="let pokemon of pokemons | filter:searchTerm">
+          <app-pokemon [pokemon]="pokemon"></app-pokemon>
+        </ion-item>
+        <ion-infinite-scroll threshold="100px" (ionInfinite)="loadPokemon($event)">
+          <ion-infinite-scroll-content
+            loadingSpinner="bubbles"
+            loadingText="Loading more data...">
+          </ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+      </ion-list>
+    </ion-col>
+  </ion-grid>
 </ion-content>
