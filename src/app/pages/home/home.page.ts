@@ -93,15 +93,22 @@ export class HomePage implements OnInit {
     const value = event.detail.value;
     if (value === '') {
       this.offset = 0;
-      // this.getpokemon(this.limit, 0);
-      this.loadPokemon(event);
+      // this.getpokemon(this.limit, this.offset);
+      // this.loadPokemon(event);
+      this.apipokemon
+        .getpokemon(this.limit, this.offset)
+        .subscribe((res: any) => {
+          this.pokemons = res.results;
+        });
+      return;
     }
-    // this.searchApi(value);
     this.apipokemon.findPokemon(value).subscribe((res) => {
       this.pokemons = [res];
       console.log('res:', res);
       console.log('pokemons:', this.pokemons);
     });
+    // this.searchApi(value);
+
     // console.log(this.searchApi(value));
   }
 }

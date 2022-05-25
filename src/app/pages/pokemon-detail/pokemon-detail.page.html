@@ -1,21 +1,29 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-button routerLink="/home"><ion-icon name="play-back-outline"></ion-icon></ion-button>
-    <ion-title>pokemon-detail</ion-title>
+  <ion-toolbar color="#323940">
+    <ion-button slot="start">
+      <ion-back-button defaultHref="list"></ion-back-button>
+      <!-- <ion-icon name="play-back-outline"></ion-icon> -->
+    </ion-button>
+    <ion-title class="ion-text-capitalize">{{pokeName}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <ion-card>
     <ion-card-header>
-      <img [src]="pokeImg" alt="">
+      <ion-slides pager="true" [options]="slideOtps">
+        <ion-slide>
+          <img [src]="pokeImg" style="height: 250px;" alt="">
+        </ion-slide>
+      </ion-slides>
+
     </ion-card-header>
     <ion-card-content>
       <ion-list>
-        <ion-item>
+        <ion-item class="ion-text-capitalize">
           {{pokeName}}
         </ion-item>
-        <ion-item>{{pokeType}}</ion-item>
+        <ion-item class="ion-text-capitalize">Type: {{pokeType}}</ion-item>
       </ion-list>
     </ion-card-content>
   </ion-card>

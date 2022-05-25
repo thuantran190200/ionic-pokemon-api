@@ -10,6 +10,7 @@ import { ApiPokemonService } from 'src/app/services/api-pokemon.service';
 export class PokemonDetailPage implements OnInit {
   pokemondetail: any;
   pokemonDetail: any;
+  slideOtps: [];
   pokeName: string;
   pokeImg: string;
   pokeType: string;
