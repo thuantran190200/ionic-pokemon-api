@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { PokemonPageModule } from './pages/pokemon/pokemon.module';
 import { HomePageModule } from './pages/home/home.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { HomePageModule } from './pages/home/home.module';
     HttpClientModule,
     PokemonPageModule,
     HomePageModule,
+    Ng2SearchPipeModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

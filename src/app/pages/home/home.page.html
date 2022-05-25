@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar class="toolbar">
-    <ion-searchbar showCancelButton="focus"></ion-searchbar>
+    <ion-searchbar showCancelButton="focus" (ionChange)="onSearchChange($event)" [(ngModel)]="searchTerm" placeholder="tìm kiếm..."></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
@@ -9,8 +9,7 @@
     <ion-col>
       <ion-list>
         <ion-item *ngFor="let pokemon of pokemons">
-          <app-pokemon  [pokemon]="pokemon"></app-pokemon>
-
+          <app-pokemon [pokemon]="pokemon"></app-pokemon>
         </ion-item>
         <ion-infinite-scroll threshold="100px" (ionInfinite)="loadPokemon($event)">
           <ion-infinite-scroll-content

@@ -1,14 +1,9 @@
-<ion-item *ngIf="pokemonDetail">
+<ion-item *ngIf="pokemonDetail" routerLink="/pokemon-detail/{{pokemonDetail.id}}">
     <ion-avatar>
-      <a href="/pokemon/{{pokemonDetail.id}}">
-        <img [src]="pokemonDetail.sprites.front_default" alt="pokemonDetail.name">
-      </a>
-
+        <img [src]="pokemonDetail.sprites.front_default" alt="pokemonDetail.name" >
     </ion-avatar>
-    <ion-label>
-      <a href="/pokemon/{{pokemonDetail.id}}">
-        <h3>Name: {{pokemonDetail.name}}</h3>
-      </a>
+    <ion-label >
+      <h3>Name: {{pokemonDetail.name}}</h3>
       <h4>Species: {{pokemonDetail.species.name}}</h4>
       <h4>Type: {{pokemonDetail.types[0].type.name}}</h4>
     </ion-label>

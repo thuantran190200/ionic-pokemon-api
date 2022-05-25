@@ -8,6 +8,7 @@ import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
 import { PokemonPageModule } from '../pokemon/pokemon.module';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { PokemonPageModule } from '../pokemon/pokemon.module';
     IonicModule,
     HomePageRoutingModule,
     PokemonPageModule,
+    Ng2SearchPipeModule,
   ],
   declarations: [HomePage],
 })

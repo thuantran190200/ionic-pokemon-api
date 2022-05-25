@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button routerLink="/home"><ion-icon name="play-back-outline"></ion-icon></ion-button>
+    <ion-title>pokemon-detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <img [src]="pokeImg" alt="">
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          {{pokeName}}
+        </ion-item>
+        <ion-item>{{pokeType}}</ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <!-- <ion-grid>
+    <ion-row>
+      <img src="pokemondetail.sprites.front_default" alt="">
+    </ion-row>
+    <ion-col>
+      <ion-item>{{pokemondetail.name}}</ion-item>
+      <ion-item>{{pokemondetail.species.name}}</ion-item>
+      <ion-item>{{pokemondetail.types[0].type.name</ion-item>
+    </ion-col>
+  </ion-grid> -->
+</ion-content>
